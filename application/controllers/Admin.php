@@ -10,6 +10,9 @@ class Admin extends CI_Controller{
 	function index(){
 		$this->load->view('admin/index');
 	}
+	public function New_Function(){
+		echo "THis is working and its new file.";
+	}
 
 }
 
