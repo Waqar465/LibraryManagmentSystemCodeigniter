@@ -28,6 +28,14 @@
 					<input type="password" name="re_password" id="re_password" value="" class="form-control" placeholder="Re Enter password">
 					<?php echo form_error('re_password'); ?>
 				</div>
+				<div class="form-group">
+					<label for="role"> <h5> Role:</h5> </label>
+					<select name="role" id="role">
+						<option value="author">Author</option>
+						<option value="reader">Reader</option>
+					</select>
+				</div>
+
 
 
 				<button class="btn btn-outline-success">Register</button>

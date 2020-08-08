@@ -28,6 +28,32 @@
 
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="py-4">All Users with their role</h1>
+			<table class="table-hover table-striped table">
+				<tr>
+					<th>No.</th>
+					<th>User Email</th>
+					<th>User Role</th>
+				</tr>
+				<?php $i=1; if (!empty($users)) { foreach ($users as $user) {  ?>
+					<tr>
+						<td><?php echo $i; $i++;?></td>
+						<td><?php echo $user['email'] ;?></td>
+						<td><?php echo $user['role'] ;?></td>
+
+					</tr>
+				<?php } } else { ?>
+					<tr>
+						<td colspan="2"> No Data Found</td>
+					</tr>
+				<?php } ?>
+
+
+			</table>
+		</div>
+	</div>
 
 </div>
 
