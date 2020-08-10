@@ -16,14 +16,14 @@ class Book extends CI_Controller{
 		$data=array();
 		$data['books']=$books;
 		$role = $this->session->userdata('role');
-		if ($role == "admin"){
-				$this->load->view('admin/books',$data);
-			}
+
 		if($role== "author"){
 			$this->load->view('author/books',$data);
 
 		}
-
+		else{
+			$this->load->view('admin/books',$data);
+		}
 		}
 
 	public function create(){
