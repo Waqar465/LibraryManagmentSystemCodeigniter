@@ -26,7 +26,7 @@
 		#rackname,#rackname1{
 			display:none;
 		}
-		#role{
+		#role,#rackname2{
 			display: block;
 			font-size: 16px;
 			font-family: sans-serif;
@@ -47,4 +47,5 @@
 <body>
 <div class="navbar navbar-dark bg-dark ">
 	<a href="" class="navbar navbar-brand">Library Managment System</a>
+
 </div>

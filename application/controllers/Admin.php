@@ -10,13 +10,16 @@ class Admin extends CI_Controller{
 	}
 
 	function index(){
+		$role = $_SESSION['role'];
+		if ($role == "admin"){
 		$users=$this->Users_model->getallusers();
 		$data= array();
 		$data['users']=$users;
 		$this->load->view('admin/index',$data);
 	}
-	public function New_Function(){
-		echo "THis is working and its new file.";
+	else{
+		$this->load->view('errorpage');
+	}
 	}
 
 }

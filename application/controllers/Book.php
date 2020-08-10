@@ -12,14 +12,12 @@ class Book extends CI_Controller{
 
 	function show(){
 		$books=$this->Book_model->getallbooks();
-
 		$data=array();
 		$data['books']=$books;
 		$role = $this->session->userdata('role');
-
+		$data['role']=$role;
 		if($role== "author"){
 			$this->load->view('author/books',$data);
-
 		}
 		else{
 			$this->load->view('admin/books',$data);
