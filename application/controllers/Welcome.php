@@ -21,6 +21,6 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 //		$msg['msg']=null;
-		$this->load->view('login');
+		$this->load->view('email/contact');
 	}
 }
