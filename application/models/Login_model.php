@@ -3,13 +3,21 @@ class Login_model extends CI_Model{
 
 	public function register($formdata){
 		$this->db->insert('clients',$formdata);
+		$data = array(
+			'id' => $formdata['id'],
+			'name' => $formdata['name'],
+			'email' => $formdata['email'] ,
+			'role' => $formdata['role'],
+			'validated' => true
+		);
+		$this->session->set_userdata($data);
 	}
 
-	public function verify_login($email,$password,$role){
+	public function verify_login($email,$password){
 		// Prep the query
 		$this->db->where('email', $email);
 		$this->db->where('password', $password);
-		$this->db->where('role', $role);
+
 
 
 		// Run the query
@@ -21,11 +29,13 @@ class Login_model extends CI_Model{
 			$row = $query->row();
 			$data = array(
 				'id' => $row->id,
+				'name' => $row->name,
 				'email' => $row->email,
 				'role' => $row->role,
 				'validated' => true
 			);
 			$this->session->set_userdata($data);
+
 			return true;
 		}
 		// If the previous process did not validate

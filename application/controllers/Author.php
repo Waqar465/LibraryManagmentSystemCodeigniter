@@ -10,8 +10,13 @@ class Author extends CI_Controller{
 	}
 
 	function index(){
-
-		$this->load->view('author/index');
+		$role = $_SESSION['role'];
+		if($role == "author") {
+			$this->load->view('author/index');
+		}
+		else{
+			$this->load->view('errorpage');
+		}
 	}
 	public function New_Function(){
 		echo "THis is working and its new file.";

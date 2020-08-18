@@ -9,7 +9,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
-<!--					<h4>   --><?php //if(! is_null($msg)) echo $msg;?><!--   </h4>-->
+					<h4>   <?php if(! is_null($errormsg)) echo $errormsg;?>   </h4>
 					<form action="<?php echo base_url('Login/client_login')?>" method="post">
 						<div class="form-group">
 							<label for="email"> <h5> Email:</h5> </label>
@@ -23,13 +23,6 @@
 							<input type="password" name="password" id="password" value="" class="form-control">
 							<?php echo form_error('password'); ?>
 						</div>
-						<div class="form-group">
-							<label for="password"> <h5> Role:</h5> </label>
-							<select name="role" id="role">
-								<option value="author">Author</option>
-								<option value="reader">Reader</option>
-							</select>
-								</div>
 
 						
 						<button class="btn btn-outline-success">Login</button>

@@ -2,14 +2,21 @@
 <?php $this->load->view('templates/header'); ?>
 <div class="container">
 	<div class="row py-5">
-		<div class="col-lg-12">
-			<center>
+		<div class="col-lg-8">
 			<h1>Welcome to UserPanel </h1>
-				<hr>
-			</center>
+
+
+		</div>
+		<div class="col-lg-4">
+			<a href="<?php echo base_url('User/update/') ?>"><button class="btn btn-outline-primary">Update</button></a>
+
+			<a href="<?php echo base_url('Login') ?>"><button class="btn btn-outline-danger">LOGOUT</button></a>
+
 		</div>
 
 	</div>
+
+	<hr>
 	<div class="row">
 		<div class="col-lg-12">
 			<form action="<?php echo base_url('Book/search') ; ?>" method="post">
