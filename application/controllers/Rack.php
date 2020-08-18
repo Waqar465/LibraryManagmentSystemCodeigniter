@@ -6,6 +6,7 @@ class Rack extends CI_Controller{
 		parent::__construct();
 		$this->load->model('Rack_model');
 		$this->load->model('Book_model');
+		$this->load->library('session');
 
 	}
 

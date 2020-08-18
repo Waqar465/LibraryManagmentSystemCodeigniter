@@ -23,6 +23,13 @@
 							<input type="password" name="password" id="password" value="" class="form-control">
 							<?php echo form_error('password'); ?>
 						</div>
+						<div class="form-group">
+							<label for="password"> <h5> Role:</h5> </label>
+							<select name="role" id="role">
+								<option value="author">Author</option>
+								<option value="reader">Reader</option>
+							</select>
+								</div>
 
 						
 						<button class="btn btn-outline-success">Login</button>

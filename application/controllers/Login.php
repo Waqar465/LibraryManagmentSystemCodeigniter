@@ -6,6 +6,7 @@ class Login extends CI_Controller{
 		parent::__construct();
 		$this->load->model('Rack_model');
 		$this->load->model('Book_model');
+		$this->load->library('session');
 		$this->load->model('Login_model');
 
 	}
@@ -26,6 +27,7 @@ class Login extends CI_Controller{
 
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
+		$role = $this->input->post('role');
 		$re_password =$this->input->post('re_password');
 
 		$this->form_validation->set_rules('email', 'email', 'required|valid_email');
@@ -43,6 +45,7 @@ class Login extends CI_Controller{
 				$formdata= array();
 				$formdata['email']=$email;
 				$formdata['password']=$password;
+				$formdata['role']=$role;
 				$this->Login_model->register($formdata);
 				redirect(base_url('User'));
 			}
@@ -58,6 +61,7 @@ class Login extends CI_Controller{
 		//getting values from the form
 		$email = $this->input->post('email');
 		$password = $this->input->post('password');
+		$role = $this->input->post('role');
 
 		$this->form_validation->set_rules('email', 'email', 'required|valid_email');
 		$this->form_validation->set_rules('password', 'password', 'required');
@@ -67,14 +71,19 @@ class Login extends CI_Controller{
 		else {
 			$password=md5($password);
 
-		$result = $this->Login_model->verify_login($email, $password);
+		$result = $this->Login_model->verify_login($email, $password,$role);
 
 		if (!$result) {
 			$msg = 'Invalid username and/or password.';
 			$this->index($msg);
 		} else {
+				if($role == "reader"){
+					redirect(base_url('User/'));
+				}
+				if ($role== "author"){
+					redirect(base_url('Author/'));
+				}
 
-				redirect(base_url('User/'));
 
 		}
 	}

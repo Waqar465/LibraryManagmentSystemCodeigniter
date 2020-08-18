@@ -5,10 +5,11 @@ class Login_model extends CI_Model{
 		$this->db->insert('clients',$formdata);
 	}
 
-	public function verify_login($email,$password){
+	public function verify_login($email,$password,$role){
 		// Prep the query
 		$this->db->where('email', $email);
 		$this->db->where('password', $password);
+		$this->db->where('role', $role);
 
 
 		// Run the query

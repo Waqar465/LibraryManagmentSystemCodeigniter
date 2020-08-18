@@ -6,6 +6,7 @@ class Book extends CI_Controller{
 		parent::__construct();
 		$this->load->model('Rack_model');
 		$this->load->model('Book_model');
+		$this->load->library('session');
 
 	}
 
@@ -14,8 +15,16 @@ class Book extends CI_Controller{
 
 		$data=array();
 		$data['books']=$books;
-		$this->load->view('admin/books',$data);
-	}
+		$role = $this->session->userdata('role');
+
+		if($role== "author"){
+			$this->load->view('author/books',$data);
+
+		}
+		else{
+			$this->load->view('admin/books',$data);
+		}
+		}
 
 	public function create(){
 		$racks=$this->Rack_model->getallracks();

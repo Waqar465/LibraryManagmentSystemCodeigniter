@@ -23,7 +23,7 @@ class Book_model extends CI_Model{
 
 		$this->db->select('books.*,racks.*');
 		$this->db->from('books');
-		$this->db->join('racks', 'books.rackid = racks.rackid', 'inner');
+		$this->db->join('racks', 'books.rackid = racks.rackid','right outer');
 		$query = $this->db->get();
 		return $query->result_array();
 
